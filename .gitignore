@@ -4,5 +4,5 @@ node_modules
 
 .vscode
 
-# pem txt file
+# pem file
 downloadServer.pem
