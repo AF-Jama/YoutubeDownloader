@@ -37,7 +37,7 @@ submitBtn.onclick = async (event)=>{
 
     textInput.parentElement.style.border = "2px solid green";
 
-    let res = await fetch(`http://localhost:5000?url=${textValue}`);
+    let res = await fetch(`http://44.203.215.184:5000?url=${textValue}`);
 
     // console.log(res);
     
@@ -74,7 +74,7 @@ submitBtn.onclick = async (event)=>{
     youtubeName.innerHTML = (res.title)?res.title:"NA";
     liveStatus.innerHTML = (res.liveStatus)?res.liveStatus:"false";
     liveStatus.style.color =  (res.liveStatus)?"green":"red";
-    downloadButton.href = `http://localhost:5000/download?url=${textValue}`
+    downloadButton.href = `http://44.203.215.184:5000/download?url=${textValue}`
 
     if(res.description){
         // triggered if description evaluates to true
