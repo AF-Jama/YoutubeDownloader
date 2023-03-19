@@ -44,6 +44,12 @@ app.get('/download',(req,res)=>{
         }).pipe(res);
 })
 
+app.get("/test",(req,res)=>{
+    return res.json({
+        test:true
+    })
+})
+
 
 
 
