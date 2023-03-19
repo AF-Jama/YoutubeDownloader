@@ -37,7 +37,7 @@ submitBtn.onclick = async (event)=>{
 
     textInput.parentElement.style.border = "2px solid green";
 
-    let res = await fetch(`http://44.203.215.184:5000?url=${textValue}`);
+    let res = await fetch(`http://44.203.215.184:5000?url=${textValue}`); // 
 
     // console.log(res);
     
