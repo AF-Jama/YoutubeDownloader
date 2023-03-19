@@ -4,4 +4,4 @@ node_modules
 
 .vscode
 
-downloadServer.pem
+./downloadServer.pem
