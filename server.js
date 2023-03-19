@@ -34,6 +34,16 @@ app.get('/',async (req,res)=>{
     }
 })
 
+app.get('/download',(req,res)=>{
+    const { url } = req.query; // returns url from destructured query object
+    
+    res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+    ytdl(url, {
+        filter:"audioandvideo",
+        quality:"highest"
+        }).pipe(res);
+})
+
 
 
 

@@ -11,6 +11,7 @@ const youtubeDuration = document.getElementById("duration");
 const liveStatus = document.getElementById("live-status");
 const youtubeDescription = document.getElementById("description");
 const downloadButtonContainer = document.getElementById("download-button-container");
+const downloadButton = document.getElementById("download-tag");
 
 
 submitBtn.onclick = async (event)=>{
@@ -73,6 +74,7 @@ submitBtn.onclick = async (event)=>{
     youtubeName.innerHTML = (res.title)?res.title:"NA";
     liveStatus.innerHTML = (res.liveStatus)?res.liveStatus:"false";
     liveStatus.style.color =  (res.liveStatus)?"green":"red";
+    downloadButton.href = `http://localhost:5000/download?url=${textValue}`
 
     if(res.description){
         // triggered if description evaluates to true
