@@ -30,8 +30,6 @@ submitBtn.onclick = async (event)=>{
     let value = RegExp("^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$").test(textValue);
     let selectedValue = selectContainer.value; // returns select options
 
-    selectedValue?console.log("trueee"):console.log("falseee")
-
     if(!value || !selectedValue){
         textInput.parentElement.style.border = "1px solid red";
 
@@ -52,7 +50,7 @@ submitBtn.onclick = async (event)=>{
 
     res = await res.json();
 
-    console.log(selectedValue);
+    // console.log(selectedValue);
 
     // console.log(`Response is ${res}`);
 
@@ -70,7 +68,7 @@ submitBtn.onclick = async (event)=>{
         return;
     }
     
-    console.log("SHOW CARD");
+    // console.log("SHOW CARD");
 
     spinnerContainer.classList.remove("spinner-border");
     cardContainer.classList.remove('hide-card');
@@ -96,7 +94,7 @@ submitBtn.onclick = async (event)=>{
         youtubeDescription.innerHTML = text + "...";
     }
 
-    console.log(imageContainer);
+    // console.log(imageContainer);
 
 }
     
@@ -150,5 +148,5 @@ closeIcon.onclick = (event)=>{
     toggleContainer.classList.remove("show-toggle");
     toggleContainer.classList.add("hide-toggle");
 
-    console.log(selectContainer.value);
+    // console.log(selectContainer.value);
 }

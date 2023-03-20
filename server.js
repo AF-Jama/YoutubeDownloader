@@ -37,14 +37,8 @@ app.get('/',async (req,res)=>{
 app.get('/download',(req,res)=>{
     const { url,type } = req.query; // returns url amd type from destructured query object
 
-    console.log(url);
-    console.log(type);
-
     mediaExtension = type==="mp4"?"video.mp4":"audio.mp3"; // ternary operator which returns media extension
     mediaFilter = type==="mp4"?"audioandvideo":"audioonly"; // ternary operator which returns audioandvideo or audioonly
-
-    console.log(mediaExtension);
-    console.log(mediaFilter);
     
     res.header('Content-Disposition', `attachment; filename=${mediaExtension}`);
     ytdl(url, {
