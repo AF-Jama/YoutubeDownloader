@@ -83,7 +83,7 @@ submitBtn.onclick = async (event)=>{
     youtubeName.innerHTML = (res.title)?res.title:"NA";
     liveStatus.innerHTML = (res.liveStatus)?res.liveStatus:"false";
     liveStatus.style.color =  (res.liveStatus)?"green":"red";
-    downloadButton.href = `http://44.203.215.184:5000/download?url=${textValue}&type=${selectedValue}`;
+    downloadButton.href = `http://44.203.215.184:5000/download?url=${textValue}`;
 
     if(res.description){
         // triggered if description evaluates to true
