@@ -46,9 +46,9 @@ app.get('/download',(req,res)=>{
     console.log(mediaExtension);
     console.log(mediaFilter);
     
-    res.header(`Content-Disposition', 'attachment; filename=${mediaExtension}`);
+    res.header(`Content-Disposition', 'attachment; filename="video.mp4"`);
     ytdl(url, {
-        filter: mediaFilter, 
+        filter: "audioandvideo", 
         quality:"highest"
         }).pipe(res);
 })
