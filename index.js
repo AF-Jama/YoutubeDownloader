@@ -30,7 +30,9 @@ submitBtn.onclick = async (event)=>{
     let value = RegExp("^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$").test(textValue);
     let selectedValue = selectContainer.value; // returns select options
 
-    if(!value && !selectedValue){
+    selectedValue?console.log("trueee"):console.log("falseee")
+
+    if(!value || !selectedValue){
         textInput.parentElement.style.border = "1px solid red";
 
         setTimeout(()=>{
