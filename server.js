@@ -37,7 +37,7 @@ app.get('/',async (req,res)=>{
 app.get('/download',(req,res)=>{
     const { url,type } = req.query; // returns url amd type from destructured query object
     
-    res.header('Content-Disposition', 'attachment; filename="video.mp4"');
+    res.header(`Content-Disposition', 'attachment; filename=${type==="mp4"?"video.mp4":"audio.mp3"}`);
     ytdl(url, {
         filter: type==="mp4"?"audioandvideo":"audioonly", // ternary operator which returns audioandvideo or audioonly
         quality:"highest"

@@ -114,6 +114,7 @@ button{
     justify-content: center;
     align-items: center;
     background-color: #000;
+    z-index: 3;
 }
 
 .show-toggle>select{
