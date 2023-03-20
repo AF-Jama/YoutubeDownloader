@@ -12,6 +12,10 @@ const liveStatus = document.getElementById("live-status");
 const youtubeDescription = document.getElementById("description");
 const downloadButtonContainer = document.getElementById("download-button-container");
 const downloadButton = document.getElementById("download-tag");
+const toggleContainer = document.getElementById("toggle-container");
+const closeIcon = document.getElementById("close-icon");
+const expandIcon = document.getElementById("expand-icon");
+const selectContainer = document.getElementById("vid-select");
 
 
 submitBtn.onclick = async (event)=>{
@@ -24,8 +28,9 @@ submitBtn.onclick = async (event)=>{
     const textValue = textInput.value;
 
     let value = RegExp("^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$").test(textValue);
+    let selectedValue = selectContainer.value; // returns select options
 
-    if(!value){
+    if(!value && !selectedValue){
         textInput.parentElement.style.border = "1px solid red";
 
         setTimeout(()=>{
@@ -74,7 +79,7 @@ submitBtn.onclick = async (event)=>{
     youtubeName.innerHTML = (res.title)?res.title:"NA";
     liveStatus.innerHTML = (res.liveStatus)?res.liveStatus:"false";
     liveStatus.style.color =  (res.liveStatus)?"green":"red";
-    downloadButton.href = `http://44.203.215.184:5000/download?url=${textValue}`
+    downloadButton.href = `http://44.203.215.184:5000/download?url=${textValue}&type=${selectedValue}`;
 
     if(res.description){
         // triggered if description evaluates to true
@@ -126,4 +131,20 @@ const fetchData = async (URL)=>{
     res = await res.json();
 
     return res; // returns promise value
+}
+
+expandIcon.onclick = (event)=>{
+    event.preventDefault();
+
+    toggleContainer.classList.remove("hide-toggle");
+    toggleContainer.classList.add("show-toggle");
+}
+
+closeIcon.onclick = (event)=>{
+    event.preventDefault();
+
+    toggleContainer.classList.remove("show-toggle");
+    toggleContainer.classList.add("hide-toggle");
+
+    console.log(selectContainer.value);
 }

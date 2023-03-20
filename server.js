@@ -35,11 +35,11 @@ app.get('/',async (req,res)=>{
 })
 
 app.get('/download',(req,res)=>{
-    const { url } = req.query; // returns url from destructured query object
+    const { url,type } = req.query; // returns url amd type from destructured query object
     
     res.header('Content-Disposition', 'attachment; filename="video.mp4"');
     ytdl(url, {
-        filter:"audioandvideo",
+        filter: type==="mp4"?"audioandvideo":"audioonly", // ternary operator which returns audioandvideo or audioonly
         quality:"highest"
         }).pipe(res);
 })
