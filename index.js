@@ -52,6 +52,8 @@ submitBtn.onclick = async (event)=>{
 
     res = await res.json();
 
+    console.log(selectedValue);
+
     // console.log(`Response is ${res}`);
 
     // spinnerContainer.classList.remove('spinner-border');
